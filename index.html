@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DogBreed AI | Köpek Cinsi Tanıma</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Dog<span>Breed</span> AI</div>
+            
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Yapay Zeka ile <br><span>Köpek Cinsini Keşfet</span></h1>
+                <p>YOLOv11m mimarisi ile dostlarımızı saniyeler içinde tanıyalım.</p>
+                <button class="main-cta" onclick="document.getElementById('live-area').scrollIntoView({behavior: 'smooth'})">Hemen Dene</button>
+            </div>
+            <div class="hero-image">
+                <img id="atlas-img" src="atlas.jpeg" alt="Atlas">
+            </div>
+        </section>
+
+        <!-- Yeni İstediğin Bölüm: Canlı Tespit ve Vizör -->
+        <section id="live-area" class="live-camera-intro">
+            <h2>Kameranı aç, canlı tespit edelim</h2>
+            <div class="camera-viewport-container">
+                <div class="camera-card visor-effect">
+                    <!-- Kamera vizörü köşeleri -->
+                    <div class="visor-corner top-left"></div>
+                    <div class="visor-corner top-right"></div>
+                    <div class="visor-corner bottom-left"></div>
+                    <div class="visor-corner bottom-right"></div>
+                    
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="canvas" style="display:none;"></canvas>
+                    
+                    <div class="camera-controls">
+                        <button id="start-camera" class="btn-primary pulse-effect">Kamerayı Başlat</button>
+                        <button id="stop-camera" class="btn-secondary" style="display:none;">Durdur</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="upload-section">
+            <div class="upload-card" id="drop-zone">
+                <input type="file" id="file-input" hidden accept="image/*">
+                <div class="upload-icon">📸</div>
+                <h3>Veya Fotoğraf Yükle</h3>
+                <p>Bilgisayarından bir dosya seçerek analiz et</p>
+                <button class="btn-primary" onclick="document.getElementById('file-input').click()">Dosya Seç</button>
+            </div>
+
+            <div class="result-card" id="result-card" style="display: none;">
+                <div class="preview-container">
+                    <img id="image-preview" src="" alt="Önizleme">
+                </div>
+                <div class="result-details">
+                    <h2 id="breed-name">Tespit Ediliyor...</h2>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidence-fill" style="width: 0%"></div>
+                    </div>
+                    <p id="confidence-text">%0 Doğruluk</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 | İstanbul Ticaret Üniversitesi - Bilgisayar Mühendisliği Projesi</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

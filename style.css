@@ -1,0 +1,143 @@
+:root {
+    --bg-color: #fff5f7;
+    --card-bg: #ffffff;
+    --accent-pink: #ff85a2;
+    --soft-pink: #fbb1bd;
+    --text-primary: #4a4a4a;
+    --text-secondary: #9b9b9b;
+    --shadow: 0 10px 30px rgba(255, 133, 162, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-primary); scroll-behavior: smooth; overflow-x: hidden; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* --- HEADER & NAV --- */
+header { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
+.logo { font-size: 24px; font-weight: 800; }
+.logo span { color: var(--accent-pink); }
+.nav-link { 
+    color: var(--accent-pink); text-decoration: none; font-weight: 600; 
+    border: 2px solid var(--accent-pink); padding: 8px 18px; border-radius: 25px; font-size: 14px;
+}
+
+/* --- HERO SECTION & HAVALI BAŞLIK --- */
+.hero { display: flex; align-items: center; justify-content: space-between; gap: 50px; margin: 60px 0; }
+.hero-content { flex: 1; }
+
+.hero-title { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+.hero-title span {
+    background: linear-gradient(90deg, #ff85a2, #ff6384);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.hero p { font-size: 18px; color: var(--text-secondary); margin-bottom: 30px; max-width: 500px; }
+
+/* ATLAS'IN KÜÇÜK VE HAREKETLİ OLDUĞU KISIM */
+.hero-image { flex: 1; display: flex; justify-content: center; }
+.hero-image img { 
+    width: 450px; height: 500px; object-fit: cover;
+    border-radius: 50% 20% 50% 20%; border: 10px solid white; 
+    box-shadow: var(--shadow);
+    animation: floatAtlas 4s ease-in-out infinite; 
+}
+
+@keyframes floatAtlas {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- HAVALI PEMBE BUTON (MAIN CTA) --- */
+.main-cta {
+    background: linear-gradient(135deg, #ff85a2 0%, #ff6384 100%);
+    color: white; border: none; padding: 15px 40px; border-radius: 50px;
+    font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    cursor: pointer; transition: all 0.4s ease;
+    box-shadow: 0 10px 20px rgba(255, 133, 162, 0.4);
+}
+.main-cta:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(255, 133, 162, 0.6); }
+
+/* --- CANLI KAMERA VE VİZÖR ALANI --- */
+.live-camera-intro { text-align: center; margin: 60px 0 30px 0; }
+.live-camera-intro h2 { font-size: 28px; margin-bottom: 25px; font-weight: 700; }
+
+.camera-viewport-container { display: flex; justify-content: center; margin-bottom: 40px; }
+
+.visor-effect {
+    position: relative; background: #1a1a1a !important;
+    padding: 20px !important; border-radius: 30px;
+    max-width: 640px; width: 100%; box-shadow: var(--shadow);
+}
+
+.visor-corner {
+    position: absolute; width: 40px; height: 40px;
+    border: 5px solid var(--accent-pink); z-index: 5;
+}
+.top-left { top: 15px; left: 15px; border-right: none; border-bottom: none; border-top-left-radius: 15px; }
+.top-right { top: 15px; right: 15px; border-left: none; border-bottom: none; border-top-right-radius: 15px; }
+.bottom-left { bottom: 15px; left: 15px; border-right: none; border-top: none; border-bottom-left-radius: 15px; }
+.bottom-right { bottom: 15px; right: 15px; border-left: none; border-top: none; border-bottom-right-radius: 15px; }
+
+#webcam { width: 100%; border-radius: 15px; transform: scaleX(-1); display: block; }
+
+.camera-controls { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+
+/* --- BUTONLAR VE DİĞER KARTLAR --- */
+.btn-primary {
+    background: var(--accent-pink); color: white; border: none;
+    padding: 12px 30px; border-radius: 25px; font-weight: 600; cursor: pointer;
+}
+
+.pulse-effect { animation: pulse-pink 2s infinite; }
+@keyframes pulse-pink {
+    0% { box-shadow: 0 0 0 0 rgba(255, 133, 162, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 133, 162, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 133, 162, 0); }
+}
+
+.upload-card {
+    background: var(--card-bg); border: 2px dashed var(--soft-pink);
+    border-radius: 30px; padding: 40px; text-align: center; box-shadow: var(--shadow);
+}
+
+.result-card { margin-top: 30px; background: var(--card-bg); border-radius: 30px; display: flex; padding: 25px; gap: 30px; box-shadow: var(--shadow); align-items: center; }
+.preview-container img { width: 250px; height: 250px; object-fit: cover; border-radius: 20px; }
+
+.confidence-bar { width: 100%; height: 12px; background: #eee; border-radius: 6px; margin: 15px 0; overflow: hidden; }
+.confidence-fill { height: 100%; background: linear-gradient(90deg, var(--soft-pink), var(--accent-pink)); transition: width 1s; }
+
+footer { text-align: center; padding: 40px 0; color: var(--text-secondary); font-size: 14px; }
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.camera-frame {
+    position: relative;
+    border: 10px solid #222;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#start-btn {
+    background-color: #ff85a2;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    /* Butonun tıklanmasını engelleyen bir katman varsa onu ezer: */
+    position: relative;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+#start-btn:hover {
+    background-color: #ff6085;
+}
